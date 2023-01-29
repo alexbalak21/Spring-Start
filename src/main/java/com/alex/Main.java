@@ -15,11 +15,10 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
     @GetMapping("/")
-    public Great greet(){
-        Great response = new Great("Hello", List.of("Burgers", "pizza", "shush"), new Person("Alex", 28, 30_000));
-        return response;
+    public Greet greet(){
+        return  new Greet("Hello", List.of("Burgers", "pizza", "shush"), new Person("Alex", 28, 30_000));
     }
-    record Great(
+    record Greet(
             String greet,
             List<String> favFoods,
             Person person
