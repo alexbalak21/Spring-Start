@@ -65,6 +65,9 @@ After making changes:
 docker build -t alexbalak/app:latest .
 docker push alexbalak/app:latest
 
+```
+
+---
 
 
 ## 📤 5. Push the Image to Docker Hub
