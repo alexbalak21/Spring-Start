@@ -52,10 +52,20 @@ docker build -t alexbalak/app:latest .
 ```bash
 docker login
 ```
-
 Enter your Docker Hub credentials when prompted.
 
 ---
+
+## 🔁 Updating Your App
+
+After making changes:
+
+```bash
+./mvnw clean package
+docker build -t alexbalak/app:latest .
+docker push alexbalak/app:latest
+
+
 
 ## 📤 5. Push the Image to Docker Hub
 
