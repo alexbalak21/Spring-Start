@@ -2,6 +2,7 @@ package app.service;
 
 import app.dto.UserLoginRequest;
 import app.dto.UserRegisterRequest;
+import app.exception.ResourceAlreadyExistsException;
 import app.model.User;
 import app.repository.UserRepository;
 import app.security.JwtTokenProvider;
@@ -35,11 +36,11 @@ public class AuthServiceImpl implements AuthService {
     @Transactional
     public User registerUser(UserRegisterRequest registerRequest) {
         if (userRepository.existsByEmail(registerRequest.getEmail())) {
-            throw new RuntimeException("Email is already in use!");
+            throw new ResourceAlreadyExistsException("Email is already in use!");
         }
 
         if (userRepository.existsByUsername(registerRequest.getUsername())) {
-            throw new RuntimeException("Username is already taken!");
+            throw new ResourceAlreadyExistsException("Username is already taken!");
         }
 
         User user = new User();
